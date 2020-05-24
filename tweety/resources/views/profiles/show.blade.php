@@ -2,7 +2,7 @@
 
     <header class="mb-6 relative">
         <div class="relative">
-            <img src="/images/default-profile-banner.jpg" alt="No" class="mb-2">
+            <img src="{{ $user->banner }}" alt="No" class="mb-2 h-56 w-full" style="border-radius: 20px">
             <img src="{{ $user->avatar }}" alt="No" class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2" style="width:150px; left: 50%">
         </div>
         <div class="flex justify-between items-center mb-6">
@@ -21,7 +21,7 @@
         </div>
 
         <p class="text-sm">
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            {{ $user->description ?: 'No yet description...' }}
         </p>
     </header>
 

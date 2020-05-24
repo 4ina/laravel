@@ -33,6 +33,8 @@ class ProfileController extends Controller
             ],
             'name' => 'string|required|max:255',
             'avatar' => 'file',
+            'banner' => 'file',
+            'description' => 'string',
             'email' => [
                 'string',
                 'email',
@@ -42,9 +44,11 @@ class ProfileController extends Controller
             ],
             'password' => 'string|required|min:3|max:255|confirmed',
         ]);
+
         if (request('avatar'))
             $data['avatar'] = request('avatar')->store('avatars');
-        // dd($data);
+        if (request('banner'))
+            $data['banner'] = request('banner')->store('banners');
 
         $user->update($data);
 
