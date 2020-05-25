@@ -15,6 +15,9 @@
         <p class="text-sm mb-3">
             {{ $tweet->body }}
         </p>
+        @isset ($tweet->image)
+            <img src="{{ $tweet->image }}" alt="tweet image" class="rounded-lg">
+        @endisset
         <x-likes-buttons :tweet="$tweet">
 
         </x-likes-buttons>

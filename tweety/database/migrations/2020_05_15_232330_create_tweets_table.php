@@ -18,6 +18,7 @@ class CreateTweetsTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->string('body');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }
