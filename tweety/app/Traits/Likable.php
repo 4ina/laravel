@@ -21,11 +21,16 @@ trait Likable
 
     public function like($user = null, $liked = true)
     {
-        $this->likes()->updateOrCreate([
-            'user_id' => $user ? $user->id : auth()->id(),
-        ], [
-            'liked' => $liked,
-        ]);
+        // dd($this->likes()->first(), $this->likes()->first()['liked'] == $liked, $liked, 0 == false);
+        if ($this->likes()->first() and $this->likes()->first()['liked'] == $liked) {
+            $this->likes()->first()->delete();
+        } else {
+            $this->likes()->updateOrCreate([
+                'user_id' => $user ? $user->id : auth()->id(),
+            ], [
+                'liked' => $liked,
+            ]);
+        }
     }
 
     public function dislike($user = null)
