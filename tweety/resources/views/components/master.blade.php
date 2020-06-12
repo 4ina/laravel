@@ -19,6 +19,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -32,5 +35,11 @@
         {{ $slot }}
     </div>
 </body>
+
+<script>
+    setTimeout(function() {
+        $('.alert-message').fadeOut('fast');
+    }, 2500);
+</script>
 
 </html>

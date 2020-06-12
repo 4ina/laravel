@@ -29,6 +29,6 @@ class TweetsController extends Controller
 
         Tweet::create($attributes);
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success', 'Successfully post created.');
     }
 }

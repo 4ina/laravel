@@ -32,8 +32,8 @@ class ProfileController extends Controller
                 Rule::unique('users')->ignore(auth()->user()),
             ],
             'name' => 'string|required|max:255',
-            'avatar' => 'file',
-            'banner' => 'file',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => 'string',
             'email' => [
                 'string',
@@ -52,6 +52,6 @@ class ProfileController extends Controller
 
         $user->update($data);
 
-        return redirect($user->path());
+        return redirect($user->path())->with('success', 'You successfully updated profile.');
     }
 }
